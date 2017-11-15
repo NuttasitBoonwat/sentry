@@ -78,11 +78,6 @@ describe('DropdownReact', function() {
         expect(wrapper.state('isOpen')).toBe(false);
       });
 
-      it('closes when dropdown menu item is clicked', function() {
-        wrapper.find('li').simulate('click');
-        expect(wrapper.state('isOpen')).toBe(false);
-      });
-
       it('does not close when menu is clicked and `keepMenuOpen` is on', function() {
         wrapper = mount(
           <DropdownReact title="test" keepMenuOpen>
@@ -151,6 +146,34 @@ describe('DropdownReact', function() {
         expect(wrapper.state('isOpen')).toBe(false);
         expect(wrapper.find('.dropdown-menu').length).toBe(0);
       });
+    });
+  });
+
+  describe('Nested Dropdown', function() {
+    let wrapper;
+
+    beforeEach(function() {
+      if (wrapper) {
+        wrapper.unmount();
+      }
+
+      wrapper = mount(
+        <DropdownReact title="parent">
+          <DropdownReact title="nested" isNestedDropdown={true}>
+            Test
+          </DropdownReact>
+        </DropdownReact>
+      );
+    });
+
+    it('Opens / closes on mouse enter and leave', function() {
+      wrapper.find('a').simulate('click');
+      wrapper.find('.dropdown-menu a').simulate('mouseEnter');
+      expect(wrapper.find('.dropdown-menu').length).toBe(2);
+
+      wrapper.find('.dropdown-menu a').simulate('mouseLeave');
+
+      expect(wrapper.find('.dropdown-menu').length).toBe(1);
     });
   });
 });

@@ -28,7 +28,7 @@ exports[`OrganizationRepositories render() with a provider renders 1`] = `
             className="dropdown pull-right anchor-right open"
           >
             <a
-              className="dropdown-actor btn btn-primary btn-sm dropdown-menu-right dropdown-toggle"
+              className="dropdown-actor btn btn-primary btn-sm dropdown-menu-right dropdown-toggle active"
               onClick={[Function]}
             >
               <div
@@ -44,7 +44,6 @@ exports[`OrganizationRepositories render() with a provider renders 1`] = `
             </a>
             <ul
               className="dropdown-menu"
-              onClick={[Function]}
             >
               <MenuItem
                 noAnchor={true}
@@ -196,7 +195,7 @@ exports[`OrganizationRepositories render() with a provider renders with a reposi
             className="dropdown pull-right anchor-right open"
           >
             <a
-              className="dropdown-actor btn btn-primary btn-sm dropdown-menu-right dropdown-toggle"
+              className="dropdown-actor btn btn-primary btn-sm dropdown-menu-right dropdown-toggle active"
               onClick={[Function]}
             >
               <div
@@ -212,7 +211,6 @@ exports[`OrganizationRepositories render() with a provider renders with a reposi
             </a>
             <ul
               className="dropdown-menu"
-              onClick={[Function]}
             >
               <MenuItem
                 noAnchor={true}
@@ -535,7 +533,7 @@ exports[`OrganizationRepositories render() without any providers renders 1`] = `
             className="dropdown pull-right anchor-right open"
           >
             <a
-              className="dropdown-actor btn btn-primary btn-sm dropdown-menu-right dropdown-toggle"
+              className="dropdown-actor btn btn-primary btn-sm dropdown-menu-right dropdown-toggle active"
               onClick={[Function]}
             >
               <div
@@ -551,7 +549,6 @@ exports[`OrganizationRepositories render() without any providers renders 1`] = `
             </a>
             <ul
               className="dropdown-menu"
-              onClick={[Function]}
             />
           </span>
         </DropdownReact>

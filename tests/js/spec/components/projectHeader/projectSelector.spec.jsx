@@ -108,18 +108,6 @@ describe('ProjectSelector', function() {
       expect(wrapper.find('.dropdown-menu').length).toBe(1);
     });
 
-    it('closes dropdown when project is selected', function() {
-      let wrapper = mount(<ProjectSelector organization={mockOrg} projectId="" />, {});
-      wrapper.find('.dropdown-actor').simulate('click');
-
-      // Select first project
-      wrapper
-        .find('.dropdown-menu [role="presentation"] a')
-        .first()
-        .simulate('click');
-      expect(wrapper.find('.dropdown-menu').length).toBe(0);
-    });
-
     it('shows empty filter message when filtering has no results', function() {
       let wrapper = mount(<ProjectSelector organization={mockOrg} projectId="" />, {});
       wrapper.find('.dropdown-actor').simulate('click');

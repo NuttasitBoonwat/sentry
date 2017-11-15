@@ -61,7 +61,7 @@ exports[`ProjectSelector render() can filter projects by project name 1`] = `
           className="dropdown project-dropdown open"
         >
           <a
-            className="dropdown-actor dropdown-toggle"
+            className="dropdown-actor dropdown-toggle active"
             onClick={[Function]}
           >
             <div
@@ -75,7 +75,6 @@ exports[`ProjectSelector render() can filter projects by project name 1`] = `
           </a>
           <ul
             className="dropdown-menu"
-            onClick={[Function]}
           >
             <li
               className="project-filter"
@@ -188,7 +187,7 @@ exports[`ProjectSelector render() can filter projects by team name/project name 
           className="dropdown project-dropdown open"
         >
           <a
-            className="dropdown-actor dropdown-toggle"
+            className="dropdown-actor dropdown-toggle active"
             onClick={[Function]}
           >
             <div
@@ -202,7 +201,6 @@ exports[`ProjectSelector render() can filter projects by team name/project name 
           </a>
           <ul
             className="dropdown-menu"
-            onClick={[Function]}
           >
             <li
               className="project-filter"
@@ -492,7 +490,7 @@ exports[`ProjectSelector render() shows empty filter message when filtering has 
           className="dropdown project-dropdown is-empty open"
         >
           <a
-            className="dropdown-actor dropdown-toggle"
+            className="dropdown-actor dropdown-toggle active"
             onClick={[Function]}
           >
             <div
@@ -506,7 +504,6 @@ exports[`ProjectSelector render() shows empty filter message when filtering has 
           </a>
           <ul
             className="dropdown-menu"
-            onClick={[Function]}
           >
             <li
               className="project-filter"
