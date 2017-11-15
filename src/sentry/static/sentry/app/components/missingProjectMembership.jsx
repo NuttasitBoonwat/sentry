@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 
 import AlertActions from '../actions/alertActions';
+import {joinTeam} from '../actionCreators/teams';
 import ApiMixin from '../mixins/apiMixin';
 import {t} from '../locale';
 
@@ -25,28 +26,25 @@ const MissingProjectMembership = React.createClass({
       loading: true,
     });
 
-    this.api.joinTeam(
-      {
-        orgId: this.props.organization.slug,
-        teamId: this.props.team.slug,
+    joinTeam(this.api, {
+      orgId: this.props.organization.slug,
+      teamId: this.props.team.slug,
+    }).then(
+      () => {
+        this.setState({
+          loading: false,
+          error: false,
+        });
       },
-      {
-        success: () => {
-          this.setState({
-            loading: false,
-            error: false,
-          });
-        },
-        error: () => {
-          this.setState({
-            loading: false,
-            error: true,
-          });
-          AlertActions.addAlert({
-            message: 'There was an error while trying to join the team.',
-            type: 'error',
-          });
-        },
+      () => {
+        this.setState({
+          loading: false,
+          error: true,
+        });
+        AlertActions.addAlert({
+          message: 'There was an error while trying to join the team.',
+          type: 'error',
+        });
       }
     );
   },

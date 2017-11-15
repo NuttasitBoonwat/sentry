@@ -4,6 +4,7 @@ import {Link} from 'react-router';
 
 import ApiMixin from '../../mixins/apiMixin';
 import AlertActions from '../../actions/alertActions';
+import {joinTeam, leaveTeam} from '../../actionCreators/teams';
 import {t} from '../../locale';
 
 // TODO(dcramer): this isnt great UX
@@ -30,28 +31,25 @@ const AllTeamsRow = React.createClass({
       loading: true,
     });
 
-    this.api.joinTeam(
-      {
-        orgId: this.props.organization.slug,
-        teamId: this.props.team.slug,
+    joinTeam(this.api, {
+      orgId: this.props.organization.slug,
+      teamId: this.props.team.slug,
+    }).then(
+      () => {
+        this.setState({
+          loading: false,
+          error: false,
+        });
       },
-      {
-        success: () => {
-          this.setState({
-            loading: false,
-            error: false,
-          });
-        },
-        error: () => {
-          this.setState({
-            loading: false,
-            error: true,
-          });
-          AlertActions.addAlert({
-            message: t('There was an error while trying to join the team.'),
-            type: 'error',
-          });
-        },
+      () => {
+        this.setState({
+          loading: false,
+          error: true,
+        });
+        AlertActions.addAlert({
+          message: t('There was an error while trying to join the team.'),
+          type: 'error',
+        });
       }
     );
   },
@@ -61,28 +59,25 @@ const AllTeamsRow = React.createClass({
       loading: true,
     });
 
-    this.api.leaveTeam(
-      {
-        orgId: this.props.organization.slug,
-        teamId: this.props.team.slug,
+    leaveTeam(this.api, {
+      orgId: this.props.organization.slug,
+      teamId: this.props.team.slug,
+    }).then(
+      () => {
+        this.setState({
+          loading: false,
+          error: false,
+        });
       },
-      {
-        success: () => {
-          this.setState({
-            loading: false,
-            error: false,
-          });
-        },
-        error: () => {
-          this.setState({
-            loading: false,
-            error: true,
-          });
-          AlertActions.addAlert({
-            message: t('There was an error while trying to leave the team.'),
-            type: 'error',
-          });
-        },
+      () => {
+        this.setState({
+          loading: false,
+          error: true,
+        });
+        AlertActions.addAlert({
+          message: t('There was an error while trying to leave the team.'),
+          type: 'error',
+        });
       }
     );
   },

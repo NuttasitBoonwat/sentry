@@ -5,6 +5,7 @@ import LazyLoad from 'react-lazy-load';
 
 import ApiMixin from '../../mixins/apiMixin';
 import {update as projectUpdate} from '../../actionCreators/projects';
+import {leaveTeam} from '../../actionCreators/teams';
 import BarChart from '../../components/barChart';
 import ProjectLabel from '../../components/projectLabel';
 import SentryTypes from '../../proptypes';
@@ -37,7 +38,7 @@ const ExpandedTeamList = React.createClass({
 
   leaveTeam(team) {
     // TODO(dcramer): handle loading indicator
-    this.api.leaveTeam({
+    leaveTeam(this.api, {
       orgId: this.props.organization.slug,
       teamId: team.slug,
     });
